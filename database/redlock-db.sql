@@ -1,6 +1,6 @@
-CREATE DATABASE Redlock;
+CREATE DATABASE Community;
 
-USE Redlock
+USE Community
 
 CREATE TABLE users (
     ID INT PRIMARY KEY,
@@ -20,5 +20,3 @@ INSERT INTO users VALUES
 (8, 'Tomas', 'Tebet', 'Seksi Acara'),
 (9, 'Yuda', 'Kemang', 'Seksi Konsumsi'),
 (10, 'Iskar', 'Tambun', 'Seksi Perlengkapan');
-
-

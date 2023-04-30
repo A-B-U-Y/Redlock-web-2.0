@@ -1,32 +1,22 @@
-pipeline
-{
+pipeline {
     agent any
-    environment 
-    {
-        DOCKER_COMPOSE_PATH = "/usr/local/bin"
+    environment {
+        PATH = "${PATH}:/usr/local/bin"
     }
-    stages
-    {
-        stage('Build-docker')
-        {
-            steps
-            {
-                sh "${DOCKER_COMPOSE_PATH} up --build"
+    stages {
+        stage("Build-database"){
+            steps{
+                sh '''
+                    docker build -t redlock-db-2.0 ./database
+                '''
             }
         }
-        stage('Run Test')
-        {
-            steps
-            {
-                sh 'curl http://localhost:7077'
+        stage("Build-web"){
+            steps{
+                sh '''
+                    docker build -t redlock-web-2.0 ./web
+                '''
             }
-        }
-    }
-    post 
-    {
-        always
-        {
-            sh "${DOCKER_COMPOSE_PATH} down"
         }
     }
 }

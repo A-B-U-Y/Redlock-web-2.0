@@ -35,7 +35,7 @@
 			$servername = "mysql_db";
 			$username = "root";
 			$password = "12tes123";
-			$dbname = "Redlock";
+			$dbname = "Community";
 
 			
 			$conn = new mysqli($servername, $username, $password, $dbname);
